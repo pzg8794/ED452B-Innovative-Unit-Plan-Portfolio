@@ -1,0 +1,374 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{parskip}
+
+\hypersetup{colorlinks=true,linkcolor=NavyBlue,urlcolor=BrickRed}
+\setlist[itemize]{noitemsep,topsep=3pt,leftmargin=*,label=\faAngleRight}
+\setlist[enumerate]{itemsep=2pt,topsep=3pt,leftmargin=*}
+\renewcommand{\arraystretch}{1.15}
+
+\titleformat{\section}{\large\bfseries\color{NavyBlue}}{\faBook~\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{BrickRed}}{\faPen~\thesubsection}{1em}{}
+
+\newtcolorbox{keybox}[1][]{
+  colback=yellow!10,
+  colframe=orange!75!red,
+  fonttitle=\bfseries,
+  title=#1,
+  boxrule=1pt,
+  rounded corners
+}
+
+\newtcolorbox{assessbox}[1][]{
+  colback=blue!5,
+  colframe=blue!60,
+  fonttitle=\bfseries,
+  title=#1,
+  boxrule=1pt,
+  rounded corners
+}
+
+\newtcolorbox{equitybox}[1][]{
+  colback=green!5,
+  colframe=green!60!black,
+  fonttitle=\bfseries,
+  title=#1,
+  boxrule=1pt,
+  rounded corners
+}
+
+\newtcolorbox{designbox}[1][]{
+  colback=purple!5,
+  colframe=purple!70,
+  fonttitle=\bfseries,
+  title=#1,
+  boxrule=1pt,
+  rounded corners
+}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{titlepage}
+\centering
+\vspace*{0.65in}
+{\Large\bfseries University of Rochester\par}
+{\large\bfseries Warner School of Education\par}
+\vspace{0.8in}
+{\LARGE \@title \par}
+\vspace{0.35in}
+{\large \textcolor{NavyBlue}{\textbf{Inclusive Unit Planning for Neurodivergent \& CLD Learners}}\par}
+{\large \textcolor{BrickRed}{\textbf{Minecraft Education as an Equity-Centered CS Context}}\par}
+\vspace{0.8in}
+{\large \textbf{\@author}\par}
+{\large Teaching \& Curriculum Graduate Student\par}
+\vspace{0.15in}
+{\large \@date \par}
+\vfill
+{\large ED452B --- Instructional Strategies for Inclusive Classrooms B\par}
+\vspace{1.4cm}
+\noindent\textit{\tiny\textbf{Design Statement:} This first-pass innovative unit plan adapts the \emph{Minecraft Education: Coding FUNdamentals} sequence into an inclusive elementary computer science unit grounded in MTSS, UDL, and culturally and linguistically sustaining design. The central planning commitment is to avoid conflating access barriers with competence, especially for neurodivergent and culturally and linguistically diverse learners.}
+\end{titlepage}
+}
+\makeatother
+
+\title{Innovative Unit Plan: Minecraft Education Coding FUNdamentals}
+\author{Piter Garcia}
+\date{March 19, 2026}
+
+\begin{document}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+This innovative unit plan is built around \emph{Minecraft Education: Coding FUNdamentals}, specifically the \emph{Animal Research Center} sequence. The unit is designed for an inclusive Grade 4--5 IGNITE computer science rotation at Pine Brook and spans four 45-minute lessons. The purpose of the unit is to teach foundational computational thinking through a high-interest digital environment while making the learning sequence accessible to neurodivergent and culturally and linguistically diverse learners.
+
+The unit is innovative in two ways. First, it uses a game-based coding environment that allows students to learn algorithms, sequencing, debugging, and problem solving through immediate visual feedback. Second, it redesigns that environment through inclusive instructional structures so that access to the lesson is not limited by reading load, startup difficulty, executive-function demands, or prior familiarity with Minecraft.
+
+\section{Unit Context and Rationale}
+
+\subsection{Unit Context}
+
+\begin{tabular}{@{}P{2.1in}P{4.8in}@{}}
+\textbf{Candidate:} & Piter Garcia \\
+\textbf{School / Setting:} & Pine Brook, IGNITE elementary computer science rotation \\
+\textbf{Grade Band:} & Grade 4--5 \\
+\textbf{Content Area:} & Computer Science / Digital Literacy \\
+\textbf{Unit Title:} & Minecraft Education Coding FUNdamentals --- Animal Research Center \\
+\textbf{Unit Length:} & 4 lessons, approximately 45 minutes each \\
+\textbf{Instructional Setting:} & rotating inclusive classes with mixed readiness, mixed digital fluency, and varied support needs \\
+\end{tabular}
+
+\subsection{Community, School, and Classroom Characteristics}
+
+Pine Brook's IGNITE program serves elementary learners through short rotation-based computer science instruction. Students enter the classroom with uneven prior experiences in coding, digital navigation, keyboard use, reading stamina, and collaborative work habits. The placement transcripts further show that students vary in how independently they can follow multi-step digital directions, persist through troubleshooting, and ask for help appropriately. The classroom context also includes neurodivergent learners and culturally and linguistically diverse learners whose competence may not be visible when a lesson depends heavily on fast reading, long verbal directions, or self-managed transitions.
+
+\subsection{Broader Curricular Context}
+
+This unit sits at the beginning of a block-coding progression in the IGNITE rotation. It introduces the Agent, MakeCode, step-by-step algorithms, and basic debugging routines that can later transfer to other coding environments already used in placement, including Code.org and robotics activities. The unit therefore functions as an entry point into programming rather than as an isolated enrichment activity.
+
+\subsection{Rationale for Unit Design}
+
+This unit is appropriate for the setting because it teaches core computer science practices through a motivating environment while still allowing direct observation of student thinking. Placement evidence indicates that students often need support with startup, reading NPC directions, understanding the task goal, and sustaining effort when code fails. For that reason, the unit is designed to separate \emph{coding understanding} from \emph{interface difficulty}. The lesson sequence keeps the official Minecraft tasks, but it adds supports that make the learning goals more reachable and the evidence of learning more valid.
+
+\begin{keybox}[Placement-Informed Design Decisions]
+\begin{itemize}
+\item whole-class launch routine for the click-path into the lesson
+\item explicit routine for reading NPC directions before coding
+\item structured peer support through driver / navigator roles
+\item planning and debugging supports before students reach longer code strings
+\item assessment that distinguishes startup problems from conceptual coding problems
+\end{itemize}
+\end{keybox}
+
+\section{Theoretical Framework}
+
+This unit is grounded in an inclusive design framework that treats support as part of the lesson rather than as a remedial add-on. Karten's work on inclusive instruction supports the view that classroom design should anticipate learner variability and provide access to rigorous tasks through proactive scaffolding. In this unit, that principle appears in the use of visual supports, predictable routines, explicit modeling, and layered assistance during coding.
+
+The unit is also informed by Universal Design for Learning. Students are provided multiple means of engagement, representation, and expression. For example, the learning sequence includes teacher modeling, visual reminders, oral explanation, partner discussion, planning sheets, and more than one way to demonstrate understanding. These features are especially important in computer science, where students may understand the logic of a task but struggle to show it because of reading load, interface management, or the pace of the lesson.
+
+MTSS further shapes the unit by clarifying the relationship between universal supports and targeted supports. Tier 1 structures such as click-path charts, predictable routines, and a common stuck protocol are designed for the whole class. Tier 2 supports such as buddy reading of NPC directions, shortened paths, pre-highlighted controls, and teacher check-ins are layered in for students who need additional access. Together, these frameworks justify an innovative unit that preserves rigor while increasing access.
+
+
+\newpage
+\section{Objectives}
+
+\subsection{Unit Goal}
+
+Students will develop foundational computational thinking by using block coding in Minecraft Education to create, test, debug, and explain algorithms.
+
+\subsection{Essential Question}
+
+How can students use algorithms, debugging, and collaboration to solve coding problems in a digital environment?
+
+\subsection{Big Ideas}
+
+\begin{itemize}
+\item Algorithms are precise step-by-step instructions.
+\item Debugging is an expected part of coding.
+\item Planning, testing, and revising improve program quality.
+\item Inclusive supports help more learners participate meaningfully in computer science.
+\end{itemize}
+
+\subsection{Unit Objectives}
+
+\begin{itemize}
+\item Students will create and test algorithms using Minecraft Education's block-coding tools.
+\item Students will use sequencing, debugging, and planning to improve code.
+\item Students will explain how their code works using computer science vocabulary.
+\item Students will collaborate productively through structured peer roles.
+\end{itemize}
+
+\subsection{Relevant Standards}
+
+\begin{itemize}
+\item \textbf{CSTA 1A-AP-08:} Model daily processes by creating and following algorithms.
+\item \textbf{CSTA 1A-AP-10:} Develop programs with sequences and simple loops.
+\item \textbf{CSTA 1A-AP-11:} Decompose steps needed to solve a problem into a precise sequence of instructions.
+\item \textbf{CSTA 1A-AP-14:} Debug errors in an algorithm or program that includes sequences and simple loops.
+\item \textbf{CSTA 1B-AP-08:} Compare and refine multiple algorithms for the same task.
+\end{itemize}
+
+
+\newpage
+\section{Assessment}
+
+\subsection{Assessment Plan}
+
+\begin{longtable}{@{}P{0.7in}P{1.0in}P{1.4in}P{1.8in}P{1.3in}@{}}
+\toprule
+\textbf{Lesson} & \textbf{Focus} & \textbf{Lesson Goal} & \textbf{Formative Assessment} & \textbf{Evidence Collected} \\
+\midrule
+\endhead
+Lesson 1 & Basic Moves & Students will navigate Minecraft Education, access MakeCode, and use a short sequence of movement blocks. & teacher observation of startup and navigation; prediction before \texttt{Run}; quick conference during first code attempt; exit ticket & startup independence, sequence accuracy, basic error noticing \\
+\midrule
+Lesson 2 & Sequencing & Students will plan and code a longer algorithm to reach a goal. & planning sheet review; observation of partner talk; teacher check-in before code execution & planning quality, sequence accuracy, use of vocabulary \\
+\midrule
+Lesson 3 & Debugging & Students will identify errors, revise code, and explain how a fix improved the result. & debug conference; code revision check; peer explanation & evidence of revision, explanation of bug and fix \\
+\midrule
+Lesson 4 & Efficient Solutions & Students will compare solution paths, complete a culminating challenge, and reflect on their learning. & completion conference; reflection response; rubric-based review & efficiency of solution, explanation, final reflection \\
+\bottomrule
+\end{longtable}
+
+\subsection{Assessment Principles}
+
+\begin{assessbox}[How Learning Will Be Evaluated]
+\begin{itemize}
+\item Students are not assessed only by whether they finish the Minecraft task.
+\item Assessment includes planning, explanation, debugging, collaboration, and task completion.
+\item Teacher notes distinguish between procedural difficulty, reading difficulty, and conceptual difficulty.
+\item Exit tickets and conferences provide evidence for learners who do not demonstrate understanding fully through the in-game task alone.
+\end{itemize}
+\end{assessbox}
+
+
+\newpage
+\section{Pedagogy}
+
+\subsection{Instructional Approach}
+
+The unit uses explicit instruction, guided practice, structured collaboration, and reflective closure. Each lesson follows a stable sequence: warm-up, teacher model, guided practice, independent or partner work, and reflection. This structure supports pacing and predictability, which are especially important in a short rotation model.
+
+\subsection{Core Teaching Strategies}
+
+\begin{itemize}
+\item think-aloud modeling during startup, navigation, and coding
+\item explicit teaching of vocabulary and controls
+\item partner roles to structure collaboration
+\item planning before execution
+\item immediate feedback through testing and debugging
+\item short reflective writing or oral explanation at lesson end
+\end{itemize}
+
+\subsection{Supports for Diverse Learners}
+
+\begin{longtable}{@{}P{2.0in}P{4.8in}@{}}
+\toprule
+\textbf{Area of Need} & \textbf{Instructional Response} \\
+\midrule
+\endhead
+Startup and navigation difficulty & click-path chart; whole-class launch routine; teacher modeling of lesson entry \\
+Reading load / NPC directions & partner read-aloud; teacher restatement; visual reminders to read before coding \\
+Executive-functioning needs & chunked directions; visible checklist; planning sheet before longer sequences \\
+Social / regulation needs & predictable partner roles; clear stuck protocol; shorter check-ins \\
+Language-processing needs & simplified directions; oral rehearsal; vocabulary support; sentence frames \\
+\bottomrule
+\end{longtable}
+
+\newpage
+\section{Unit Implementation}
+
+\subsection{Four-Lesson Sequence}
+
+\begin{longtable}{@{}P{0.55in}P{1.2in}P{1.35in}P{2.05in}P{1.1in}@{}}
+\toprule
+\textbf{Lesson} & \textbf{Title} & \textbf{Main Content} & \textbf{Key Activities} & \textbf{Products} \\
+\midrule
+\endhead
+1 & Basic Moves & movement controls, Agent, MakeCode entry & launch routine, teacher model, short movement code, exit ticket & short sequence and reflection \\
+\midrule
+2 & Sequencing to Reach a Goal & longer ordered algorithms & plan-before-you-code sheet, guided sequence build, partner coding & planning sheet and working code \\
+\midrule
+3 & Debugging and Revision & identifying and fixing errors & debug mini-lesson, peer explanation, revision cycle & revised code and bug explanation \\
+\midrule
+4 & Efficient Solutions and Reflection & comparing solutions, final challenge & challenge task, reflection, teacher conference & final solution and unit reflection \\
+\bottomrule
+\end{longtable}
+
+\subsection{Lesson 1: Basic Moves}
+
+\begin{tabular}{@{}P{1.7in}P{4.3in}@{}}
+\textbf{Lesson Goal:} & Students will navigate Minecraft Education, open MakeCode, and use basic movement blocks to move the Agent toward a goal. \\
+\textbf{Objectives:} & Students will use movement controls, access MakeCode, write a short sequence, and test whether the Agent does what they expect. \\
+\textbf{Materials:} & Minecraft Education, Chromebook or device, click-path chart, control reminder, exit ticket. \\
+\textbf{Opening:} & Unplugged directional warm-up and whole-class launch routine into the lesson. \\
+\textbf{Direct Instruction:} & Teacher models the lesson path, reading the NPC directions, entering the yellow-walled room, opening MakeCode, and building the first short sequence. \\
+\textbf{Guided Practice:} & Students code along with the teacher and predict the Agent's movement before running the code. \\
+\textbf{Independent / Partner Work:} & Students complete the first movement task with peer support. \\
+\textbf{Closure:} & Students complete an exit ticket describing what their code did and one thing they had to fix. \\
+\textbf{Assessment:} & Teacher observation, prediction routine, and exit ticket. \\
+\end{tabular}
+
+\subsection{Lesson 2: Sequencing to Reach a Goal}
+
+\begin{tabular}{@{}P{1.7in}P{4.3in}@{}}
+\textbf{Lesson Goal:} & Students will plan and write a longer sequence to move the Agent to a goal. \\
+\textbf{Objectives:} & Students will map a path, code an ordered sequence, and explain their reasoning to a partner. \\
+\textbf{Materials:} & Minecraft Education, planning sheet, vocabulary support, teacher checkpoint notes. \\
+\textbf{Opening:} & Warm-up comparison of two short algorithms. \\
+\textbf{Direct Instruction:} & Teacher models how to use a planning sheet before building code. \\
+\textbf{Guided Practice:} & Class co-constructs a path and matching code. \\
+\textbf{Independent / Partner Work:} & Students solve a new challenge using the planning sheet when needed. \\
+\textbf{Closure:} & Students explain their algorithm to a partner and revise one step if necessary. \\
+\textbf{Assessment:} & Planning sheet, partner explanation, and teacher observation. \\
+\end{tabular}
+
+\subsection{Lesson 3: Debugging and Revision}
+
+\begin{tabular}{@{}P{1.7in}P{4.3in}@{}}
+\textbf{Lesson Goal:} & Students will identify coding errors and revise their algorithm. \\
+\textbf{Objectives:} & Students will compare expected and actual outcomes, identify an error, and revise the program. \\
+\textbf{Materials:} & Minecraft Education, debug prompt sheet, reflection prompt. \\
+\textbf{Opening:} & Short teacher demonstration of a broken program. \\
+\textbf{Direct Instruction:} & Teacher models a simple debugging process: predict, test, identify the bug, revise, retest. \\
+\textbf{Guided Practice:} & Class corrects one shared code error together. \\
+\textbf{Independent / Partner Work:} & Students revise their own code and explain what changed. \\
+\textbf{Closure:} & Students submit a short explanation of the bug and fix. \\
+\textbf{Assessment:} & Debug conference and revision evidence. \\
+\end{tabular}
+
+\subsection{Lesson 4: Efficient Solutions and Reflection}
+
+\begin{tabular}{@{}P{1.7in}P{4.3in}@{}}
+\textbf{Lesson Goal:} & Students will compare solution strategies and complete a culminating coding challenge. \\
+\textbf{Objectives:} & Students will complete a final task, compare two possible algorithms, and reflect on their coding growth. \\
+\textbf{Materials:} & Minecraft Education, final reflection, simple rubric. \\
+\textbf{Opening:} & Review of sequencing and debugging strategies. \\
+\textbf{Direct Instruction:} & Teacher models how a solution can be correct but more or less efficient. \\
+\textbf{Guided Practice:} & Students compare two sample solutions. \\
+\textbf{Independent / Partner Work:} & Students complete the culminating task and conference with the teacher. \\
+\textbf{Closure:} & Students reflect on what helped them succeed in the unit. \\
+\textbf{Assessment:} & final code, explanation, and reflection. \\
+\end{tabular}
+
+\section{Target Students and Differentiation}
+
+\begin{longtable}{@{}P{1.25in}P{1.75in}P{3.1in}@{}}
+\toprule
+\textbf{Target Student} & \textbf{Likely Barrier} & \textbf{Planned Support} \\
+\midrule
+\endhead
+Neurodivergent learner with executive-functioning needs & skipping steps, acting before reading directions, frustration when the code does not work immediately & visible checklist, chunked directions, prediction before \texttt{Run}, planning sheet, teacher checkpoint \\
+\midrule
+CLD learner with language-processing / reading-load needs & dense NPC text, unfamiliar vocabulary, fast oral directions & partner read-aloud, simplified directions, visual vocabulary support, oral explanation options \\
+\midrule
+Neurodivergent learner with regulation / social-communication needs & overload during noisy partner work or repeated resets & explicit driver / navigator roles, predictable routine, calm stuck protocol, brief teacher check-ins \\
+\bottomrule
+\end{longtable}
+
+\section{Analysis of Student Learning}
+
+Student learning in this unit will be analyzed through patterns across the four lessons rather than through completion alone. The key questions are whether students increasingly demonstrate independence with algorithms, whether they can explain how their code works, and whether debugging becomes more strategic over time. In addition, the teacher will examine whether supports such as planning sheets, partner roles, and click-path charts improve access without lowering expectations.
+
+\section{Unit Analysis}
+
+The strength of this unit is that it preserves the authentic Minecraft coding sequence while organizing it into a more explicit instructional design. Students engage in real coding tasks, but the unit does not assume that motivation alone will produce access. Instead, it pairs a high-interest platform with clear routines, support structures, and layered assessment. For an inclusive classroom, that combination is more instructionally responsible than assigning the digital task without redesign.
+
+The next revision of the unit should be informed by student work, teacher notes, and observed patterns of support. That second version can then be tightened to the rubric with concrete evidence of what actually helped learners succeed.
+
+% \section{References}
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{karten}
+Karten, T. J. \emph{Inclusion Strategies and Interventions}. Warner course text.
+
+\bibitem{cast}
+CAST. \emph{Universal Design for Learning Guidelines}. Retrieved from \url{https://udlguidelines.cast.org}
+
+\bibitem{minecraft}
+Minecraft Education. \emph{Coding FUNdamentals: Animal Research Center}. Curriculum materials used as the basis for this unit plan.
+
+\bibitem{placement}
+Teaching placement transcripts, March 2026. Local classroom evidence used to refine implementation decisions for Pine Brook IGNITE.
+
+\end{thebibliography}
+
+\end{document}
