@@ -1,15 +1,16 @@
-# ED452B - Part 1 Innovative Unit Planning Submission
+# ED452B - Innovative Unit Plan Portfolio
 
 **Course:** ED452B - Instructional Strategies for Inclusive Classrooms B  
 **Candidate:** Piter Garcia  
 **Semester:** Spring 2026  
-**Submission focus:** Innovative Unit Plan - Minecraft Education Coding FUNdamentals
+**Unit focus:** Minecraft Education Coding FUNdamentals  
+**Inclusion focus:** Inclusive computer science instruction for neurodivergent and culturally/linguistically diverse learners
 
 ---
 
 ## Overview
 
-This repository documents the Part 1 Innovative Unit Planning submission for ED452B. The unit adapts **Minecraft Education: Coding FUNdamentals** into a Grade 4 inclusive computer science sequence for the IGNITE Computer Science and Digital Literacy rotation at Pine Brook Elementary.
+This repository now serves as the organized portfolio for all ED452B Innovative Unit Plan parts, not only an initial Part 1 submission. The unit adapts **Minecraft Education: Coding FUNdamentals** into a Grade 4 inclusive computer science sequence for the IGNITE Computer Science and Digital Literacy rotation at Pine Brook Elementary.
 
 The central design claim is:
 
@@ -24,8 +25,16 @@ The final unit therefore treats access as part of instruction and assessment, no
 ```text
 .
 ├── README.md
-├── syllabus_alignment.md
-├── rubric_alignment.md
+├── course_alignment/
+│   ├── syllabus_alignment.md
+│   └── rubric_alignment.md
+├── parts/
+│   ├── part_1_unit_plan_design/
+│   │   └── README.md
+│   ├── part_2_revised_unit_plan/
+│   │   └── README.md
+│   └── part_3_reflection_presentation/
+│       └── README.md
 ├── unit_overview/
 │   ├── context_and_rationale.md
 │   ├── theoretical_framework.md
@@ -40,8 +49,7 @@ The final unit therefore treats access as part of instruction and assessment, no
 │   ├── transcript_analysis.md
 │   └── sample_student_work.md
 └── artifacts/
-    ├── README.md
-    └── ED452B_Minecraft_UnitPlan_Final_2026-05-01.tex
+    └── README.md
 ```
 
 ---
@@ -57,6 +65,28 @@ The final unit therefore treats access as part of instruction and assessment, no
 | Main CS concepts | Algorithm, sequence, debug, loop, efficiency, Agent movement |
 | Inclusion focus | Neurodivergent learners, CLD learners, executive-function supports, reading-load supports, structured collaboration |
 | Evidence base | TeachingPlacement transcripts, classroom challenge booklet, ED452B rubric, ED452B example unit structure, course readings |
+
+---
+
+## Parts
+
+### Part 1 - Unit Plan Design
+
+Initial unit design, context, rationale, theoretical framework, goals, standards, assessment plan, and lesson sequence.
+
+Location: `parts/part_1_unit_plan_design/`
+
+### Part 2 - Revised Unit Plan
+
+Revised final unit plan using placement evidence, TeachingPlacement transcript analysis, target-student supports, student-learning analysis, and unit enactment commentary.
+
+Location: `parts/part_2_revised_unit_plan/`
+
+### Part 3 - Reflection Presentation
+
+Reflection and presentation materials explaining strategies used, what was learned from designing and revising the unit, and how implementation evidence shaped the final version.
+
+Location: `parts/part_3_reflection_presentation/`
 
 ---
 
@@ -98,6 +128,10 @@ This public repository uses de-identified and synthesized placement evidence. It
 
 ---
 
-## Submission Status
+## Canonical Final Artifact
 
-This repository is organized for ED452B Part 1 documentation and final-unit planning evidence. The LaTeX unit plan is included in `artifacts/`, and the Markdown files explain how the unit aligns with the syllabus, rubric, and placement evidence.
+The final LaTeX unit plan is maintained in the ED452B course repository at:
+
+`pzg8794/ED452B/Assignments/Minecraft_Innovative_Unit_Plan_2026-03-18/ED452B_Minecraft_UnitPlan_Final_2026-05-01.tex`
+
+This repository organizes the documentation, rubric alignment, appendix evidence, and all-part portfolio structure around that final artifact.
