@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+
+\definecolor{navyBlue}{HTML}{003087}
+\definecolor{brickRed}{HTML}{B22222}
+\hypersetup{colorlinks=true,linkcolor=navyBlue,urlcolor=brickRed}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\onehalfspacing
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{ED452B Revised Innovative Unit Plan -- Piter Garcia}
+\fancyfoot[C]{Final Report -- Page \thepage}
+
+\title{ED452B Part 2 Revised Innovative Unit Plan Report\\Minecraft Education Coding FUNdamentals}
+\author{Piter Garcia}
+\date{May 1, 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Executive Summary}
+This report is the revised ED452B Innovative Unit Plan for \emph{Minecraft Education: Coding FUNdamentals}. The unit is a four-lesson Grade 4 inclusive computer science sequence for Pine Brook Elementary's IGNITE Computer Science and Digital Literacy rotation. The revision uses the ED452B rubric, course example structure, classroom challenge booklet, and TeachingPlacement transcript evidence from Grade 4 Minecraft lessons.
+
+The central revision claim is that students were not only struggling with coding. They were often struggling with access into the coding task. Students needed support with sign-in, menu navigation, NPC directions, task interpretation, timed challenge goals, Agent movement, debugging habits, and partner roles. The final unit therefore separates access barriers from computational-thinking evidence.
+
+\section{Unit Context and Rationale}
+Pine Brook Elementary students in Grade 4 enter Minecraft Education with varied digital fluency, keyboard skills, reading stamina, executive-functioning skills, regulation needs, language backgrounds, and prior Minecraft experience. A Minecraft coding task requires students to coordinate many demands: locating the correct world, reading directions, controlling movement, opening MakeCode, constructing code, testing the Agent, and revising after error.
+
+The unit's rationale is that inclusive computer science instruction must design for these demands directly. A student who cannot access the correct world or parse dense NPC text may still understand sequencing. A student who completes a challenge quickly may still need support explaining the algorithm. Therefore, the unit assesses access, goal understanding, algorithmic planning, debugging, and explanation separately.
+
+\section{Theoretical Framework}
+The revised unit is grounded in three connected frameworks.
+
+\subsection{Karten, Inclusion, and MTSS}
+Karten's inclusion framework supports proactive design. The unit embeds Tier 1 supports for all students: projected click paths, consistent routines, read-aloud of NPC directions, visible vocabulary, planning sheets, debugging prompts, and multiple response modes. Tier 2 supports are added for students who need more targeted scaffolding.
+
+\subsection{Universal Design for Learning}
+UDL guides the unit through multiple means of engagement, representation, and action/expression. Students encounter concepts through teacher modeling, visual directions, physical sequence cards, partner talk, screenshots, and digital coding. Students show learning through code, planning sheets, debugging logs, oral explanation, exit tickets, and teacher conferences.
+
+\subsection{Asset-Based Computer Science Pedagogy}
+Students' prior Minecraft knowledge, visual-spatial reasoning, peer explanation, oral demonstration, and creative building are treated as resources. Students with stronger Minecraft fluency can become Expert Helpers who ask questions and support peers without taking over the keyboard.
+
+\section{Standards and Long-Term Goals}
+\begin{longtable}{@{}P{1.4in}P{5.3in}@{}}
+\toprule
+\textbf{Standard} & \textbf{Unit connection} \\
+\midrule
+NYS 4--6.CT.1 & Students develop, test, and revise block-coded programs. \\
+CSTA 1A-AP-08 & Students model processes by creating and following algorithms. \\
+CSTA 1A-AP-10 & Students develop programs with sequences and simple loops. \\
+CSTA 1A-AP-11 & Students decompose problems into ordered steps. \\
+CSTA 1A-AP-14 & Students debug errors in algorithms and programs. \\
+ISTE Student 5c & Students break problems into parts and use models to solve problems. \\
+\bottomrule
+\end{longtable}
+
+By the end of the unit, students will create and test block-coded algorithms, use debugging strategies, explain how their code works, collaborate through structured roles, and reflect on how supports helped them access the task.
+
+\section{Assessment System}
+The assessment system is portfolio-based and uses multiple evidence sources rather than task completion alone.
+
+\begin{longtable}{@{}P{1.7in}P{2in}P{3in}@{}}
+\toprule
+\textbf{Evidence source} & \textbf{Learning shown} & \textbf{Instructional use} \\
+\midrule
+Startup checklist & Access to Minecraft and MakeCode & Separates interface access from coding competence. \\
+Plan Before You Code sheet & Sequencing and decomposition & Shows thinking before execution. \\
+Code artifact or screenshot & Program accuracy & Shows whether the Agent followed the intended algorithm. \\
+Debug log / conference & Revision strategy & Shows whether the student uses a process, not random trial and error. \\
+Exit ticket / oral explanation & Conceptual explanation & Allows CLD learners and students with writing needs to show understanding. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Expanded Rubric}
+The final rubric uses five criteria: Followed Directions, Reached Correct Goal Path, Used Efficient Code, Used Access Supports Productively, and Explanation/Reflection.
+
+\section{Lesson Sequence}
+\begin{enumerate}
+\item \textbf{Basic Moves:} students access Minecraft Education, open MakeCode, and move the Agent using a short sequence.
+\item \textbf{Sequencing to Reach a Goal:} students plan a longer ordered algorithm and test the Agent path.
+\item \textbf{Debugging and Revision:} students identify bugs, revise code, and explain one fix.
+\item \textbf{Efficient Solutions and Reflection:} students compare repeated code to loops and reflect on their coding growth.
+\end{enumerate}
+
+Each lesson follows a predictable structure: warm-up, teacher model, guided practice, partner/independent coding, and formative closure.
+
+\section{Target Students and Supports}
+\begin{longtable}{@{}P{1.5in}P{2.2in}P{2.7in}@{}}
+\toprule
+\textbf{Target profile} & \textbf{Evidence-based need} & \textbf{Support} \\
+\midrule
+Executive-functioning & Skips directions, clicks before reading, becomes frustrated when code fails. & Chunked task cards, Stop--Read--Predict, teacher checkpoint, visible checklist. \\
+CLD / language-processing & Dense NPC text and fast oral directions can hide understanding. & NPC read-aloud, visual vocabulary, partner reading, oral explanation accepted as evidence. \\
+Regulation / social communication & Ambiguous roles and noisy digital work increase stress. & Driver/Navigator roles, posted agenda, stuck card, bounded choices. \\
+\bottomrule
+\end{longtable}
+
+These supports do not lower expectations. They create conditions for each student to demonstrate the same computational-thinking outcomes as peers.
+
+\section{Systematic Analysis of Student Learning}
+The placement transcripts showed five major learning patterns.
+
+\subsection{Pattern 1: Setup and Interface Friction}
+Students needed support with sign-in, menu navigation, world entry, and MakeCode access. These barriers appeared before coding began, so they could not be interpreted as weak computational thinking.
+
+\subsection{Pattern 2: Task Goals Needed to Be Visible}
+Students sometimes misunderstood the timed dual-gold-plate challenge. Several needed the goal restated: the student and the Agent needed to stand on separate gold plates at the same time. This supported adding visible success criteria and goal restatement before coding.
+
+\subsection{Pattern 3: Debugging Needed a Routine}
+Students debugged more productively when prompted to identify the expected result, observe the actual result, change one block, and retest. The unit now teaches debugging as a procedure.
+
+\subsection{Pattern 4: Collaboration Needed Structure}
+Open-ended partner work can either help or allow one student to take over. Driver/Navigator roles preserve peer support while maintaining accountability.
+
+\subsection{Pattern 5: Explanation Lagged Behind Completion}
+Some students could complete parts of the challenge before explaining why the code worked. Oral conferences, sentence frames, and partner teach-backs were added to make explanation visible.
+
+\section{Unit Enactment Commentary}
+The unit confirmed that engagement is not the same as access. Minecraft motivated students, but students still needed explicit routines for entering the task, reading directions, interpreting goals, and debugging.
+
+The strongest part of the unit was that the Agent made algorithmic thinking visible. Students could immediately compare what they expected with what happened. The main challenge was that Minecraft introduced several access barriers at once. The final revision responds by tightening entry routines, making success criteria visible, structuring collaboration, and documenting multiple forms of evidence.
+
+\section{Future Teaching Changes}
+In a future enactment, I would collect more code screenshots, planning sheets, debugging logs, exit tickets, and teacher-conference notes. I would also make role-switching more explicit and keep a hints-before-rescue protocol so that students receive support without having their thinking taken over.
+
+\section{Collaboration}
+This unit reflects collaboration with the cooperating teacher, students, placement evidence, course readings, and the ED452B rubric. The cooperating teacher's implementation provided the key evidence for revision. Student responses shaped the final access routines, assessment categories, and supports.
+
+\section{Appendix Summary}
+Appendix documentation in this repository includes assessment tools, transcript analysis, and de-identified student-work records. Raw transcripts, student names, IEP records, and identifiable student work are intentionally excluded from the public repository.
+
+\section{References}
+CAST. (2018). \emph{Universal Design for Learning guidelines version 2.2}. \url{http://udlguidelines.cast.org}
+
+Computer Science Teachers Association. (2017). \emph{CSTA K--12 computer science standards}. \url{https://www.csteachers.org/page/standards}
+
+Karten, T. J. (2021). \emph{Inclusion strategies and interventions}. Solution Tree Press.
+
+Microsoft Education. (2023). \emph{Minecraft Education: Computer science curriculum}. \url{https://education.minecraft.net}
+
+New York State Education Department. (2020). \emph{New York State K--12 computer science and digital fluency learning standards}.
+
+TeachingPlacement. (2026). \emph{Grade 4 Minecraft Education coding transcripts and evidence notes, March 2026}. Pine Brook Elementary placement documentation.
+
+\end{document}
