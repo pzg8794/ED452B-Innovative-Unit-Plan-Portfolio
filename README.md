@@ -10,7 +10,7 @@
 
 ## Overview
 
-This repository now serves as the organized portfolio for all ED452B Innovative Unit Plan parts, not only an initial Part 1 submission. The unit adapts **Minecraft Education: Coding FUNdamentals** into a Grade 4 inclusive computer science sequence for the IGNITE Computer Science and Digital Literacy rotation at Pine Brook Elementary.
+This repository serves as the organized portfolio for all ED452B Innovative Unit Plan parts. The unit adapts **Minecraft Education: Coding FUNdamentals** into a Grade 4 inclusive computer science sequence for the IGNITE Computer Science and Digital Literacy rotation at Pine Brook Elementary.
 
 The central design claim is:
 
@@ -30,27 +30,31 @@ The final unit therefore treats access as part of instruction and assessment, no
 │   └── rubric_alignment.md
 ├── parts/
 │   ├── part_1_unit_plan_design/
-│   │   └── README.md
+│   │   ├── README.md
+│   │   └── report.tex
 │   ├── part_2_revised_unit_plan/
-│   │   └── README.md
+│   │   ├── README.md
+│   │   └── report.tex
 │   └── part_3_reflection_presentation/
-│       └── README.md
+│       ├── README.md
+│       └── presentation.tex
 ├── unit_overview/
-│   ├── context_and_rationale.md
-│   ├── theoretical_framework.md
-│   ├── standards_and_goals.md
-│   ├── assessment_plan.md
-│   ├── lesson_sequence.md
-│   ├── student_learning_analysis.md
-│   ├── unit_reflection.md
-│   └── collaboration.md
 ├── appendix/
-│   ├── assessment_tools.md
-│   ├── transcript_analysis.md
-│   └── sample_student_work.md
 └── artifacts/
     └── README.md
 ```
+
+---
+
+## Canonical Part Files
+
+| Course part | Main source file | Purpose |
+|---|---|---|
+| Part 1 - Unit Plan Design | `parts/part_1_unit_plan_design/report.tex` | Initial unit design report: context, theory, standards, assessment, lesson sequence, and target-student supports. |
+| Part 2 - Revised Unit Plan | `parts/part_2_revised_unit_plan/report.tex` | Revised/final report using placement evidence, transcript analysis, student-learning analysis, enactment commentary, and appendix evidence. |
+| Part 3 - Reflection Presentation | `parts/part_3_reflection_presentation/presentation.tex` | Beamer presentation for the informal 3-minute Part 3 reflection. |
+
+The original working sources also remain in the main ED452B course repository. This portfolio repo is the clean, submission-facing organization layer.
 
 ---
 
@@ -72,7 +76,7 @@ The final unit therefore treats access as part of instruction and assessment, no
 
 ### Part 1 - Unit Plan Design
 
-Initial unit design, context, rationale, theoretical framework, goals, standards, assessment plan, and lesson sequence.
+Initial unit design, context, rationale, theoretical framework, goals, standards, assessment plan, lesson sequence, and target-student supports.
 
 Location: `parts/part_1_unit_plan_design/`
 
@@ -110,15 +114,7 @@ Placement transcripts showed repeated access barriers:
 - students could sometimes complete a task before they could explain the code;
 - open partner work needed structure so one student did not take over.
 
-The final unit responds with:
-
-- projected click-path routines;
-- NPC read-aloud and task-goal restatement;
-- Stop-Read-Predict-Run-Debug protocol;
-- Driver/Navigator roles;
-- planning sheets;
-- multiple evidence sources for assessment;
-- explicit target-student supports.
+The final unit responds with projected click-path routines, NPC read-aloud and task-goal restatement, Stop-Read-Predict-Run-Debug, Driver/Navigator roles, planning sheets, multiple evidence sources for assessment, and explicit target-student supports.
 
 ---
 
@@ -128,10 +124,10 @@ This public repository uses de-identified and synthesized placement evidence. It
 
 ---
 
-## Canonical Final Artifact
+## Recommended Repository Name
 
-The final LaTeX unit plan is maintained in the ED452B course repository at:
+The repository should be renamed in GitHub settings to:
 
-`pzg8794/ED452B/Assignments/Minecraft_Innovative_Unit_Plan_2026-03-18/ED452B_Minecraft_UnitPlan_Final_2026-05-01.tex`
+`ED452B-Innovative-Unit-Plan-Portfolio`
 
-This repository organizes the documentation, rubric alignment, appendix evidence, and all-part portfolio structure around that final artifact.
+The current content is already organized under that broader portfolio purpose.
