@@ -1,0 +1,715 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=0.75in,headheight=16pt]{geometry}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{titlesec}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{xltabular}
+\usepackage{colortbl}
+
+% ─── Color Definitions ─────────────────────────────────────────────────────────
+\definecolor{navyBlue}{HTML}{003087}
+\definecolor{brickRed}{HTML}{B22222}
+\definecolor{keyFill}{HTML}{FFFBEB}
+\definecolor{keyBorder}{HTML}{E06000}
+\definecolor{assFill}{HTML}{EBF3FF}
+\definecolor{assBorder}{HTML}{2255BB}
+\definecolor{eqFill}{HTML}{EDFAED}
+\definecolor{eqBorder}{HTML}{2D7A2D}
+\definecolor{desFill}{HTML}{F5EBFF}
+\definecolor{desBorder}{HTML}{8833BB}
+\definecolor{tableHeader}{HTML}{003087}
+\definecolor{altRow}{HTML}{F0F4FF}
+\definecolor{lightGray}{HTML}{F7F7F7}
+
+% ─── Hyperref ──────────────────────────────────────────────────────────────────
+\hypersetup{colorlinks=true,linkcolor=navyBlue,urlcolor=brickRed}
+
+% ─── List Styles ───────────────────────────────────────────────────────────────
+\setlist[itemize]{noitemsep,topsep=3pt,leftmargin=*,label={\color{brickRed}\faAngleRight}}
+\setlist[enumerate]{itemsep=2pt,topsep=3pt,leftmargin=*}
+\renewcommand{\arraystretch}{1.18}
+
+% ─── Section / Subsection Formatting ──────────────────────────────────────────
+\titleformat{\section}{\large\bfseries\color{navyBlue}}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries\color{brickRed}}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+% ─── Callout Boxes ─────────────────────────────────────────────────────────────
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{keybox}[1][]{
+  enhanced,breakable,
+  colback=keyFill,colframe=keyBorder,
+  fonttitle=\bfseries\small\color{keyBorder},
+  title=#1,boxrule=1pt,arc=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  before skip=8pt,after skip=8pt
+}
+
+\newtcolorbox{assessbox}[1][]{
+  enhanced,breakable,
+  colback=assFill,colframe=assBorder,
+  fonttitle=\bfseries\small\color{assBorder},
+  title=#1,boxrule=1pt,arc=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  before skip=8pt,after skip=8pt
+}
+
+\newtcolorbox{equitybox}[1][]{
+  enhanced,breakable,
+  colback=eqFill,colframe=eqBorder,
+  fonttitle=\bfseries\small\color{eqBorder},
+  title=#1,boxrule=1pt,arc=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  before skip=8pt,after skip=8pt
+}
+
+\newtcolorbox{designbox}[1][]{
+  enhanced,breakable,
+  colback=desFill,colframe=desBorder,
+  fonttitle=\bfseries\small\color{desBorder},
+  title=#1,boxrule=1pt,arc=4pt,
+  left=6pt,right=6pt,top=4pt,bottom=4pt,
+  before skip=8pt,after skip=8pt
+}
+
+\newcommand{\lessonphase}[5]{%
+\noindent\textbf{\color{brickRed}#1 --- #2}\par
+\textit{Teacher says / does:} #3\par
+\textit{Students say / do:} #4\par
+\textit{Differentiation / supports:} #5\par\medskip
+}
+
+% ─── Column Type ───────────────────────────────────────────────────────────────
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\keepXColumns
+
+% ─── Header / Footer ───────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small\color{gray}ED452B \textperiodcentered\ Minecraft Education Coding FUNdamentals \textperiodcentered\ Piter Garcia}
+\fancyfoot[C]{\small\color{gray}ED452B --- Spring 2026 \textperiodcentered\ Warner School of Education, University of Rochester \textperiodcentered\ Part 1 Draft \textperiodcentered\ Page \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+% ─── Table Row Color Helper ────────────────────────────────────────────────────
+\newcommand{\hrow}{\rowcolor{tableHeader}\color{white}\bfseries}
+\newcommand{\arow}{\rowcolor{altRow}}
+
+% ─── Title Page ────────────────────────────────────────────────────────────────
+\makeatletter
+\renewcommand{\maketitle}{%
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{0.65in}
+{\Large\bfseries University of Rochester\par}
+{\large\bfseries Warner School of Education\par}
+\vspace{0.8in}
+{\LARGE\bfseries\color{navyBlue} Innovative Unit Plan\par}
+{\Large Minecraft Education Coding FUNdamentals\par}
+\vspace{0.35in}
+{\large\textcolor{navyBlue}{\textbf{Inclusive Unit Planning for Neurodivergent \& CLD Learners}}\par}
+{\large\textcolor{brickRed}{\textbf{Minecraft Education as an Equity-Centered CS Context}}\par}
+\vspace{0.8in}
+{\large\textbf{Piter Garcia}\par}
+{\large Teaching \& Curriculum Graduate Student\par}
+\vspace{0.15in}
+{\large March 19, 2026\par}
+\vfill
+{\large ED452B --- Instructional Strategies for Inclusive Classrooms B\par}
+{\normalsize Spring 2026 \textperiodcentered\ Instructor: Elyse Schirmer\par}
+\vspace{1.0cm}
+\noindent\textit{\tiny\textbf{Design Statement:} This innovative unit plan adapts the \emph{Minecraft Education: Coding FUNdamentals} (Upper Primary Coding Fundamentals) sequence into an inclusive elementary computer science unit grounded in MTSS, UDL, and culturally and linguistically sustaining design. The central planning commitment is to avoid conflating access barriers with competence, especially for neurodivergent and culturally and linguistically diverse learners. All design decisions are directly informed by placement observations at Pine Brook Elementary (March 2026).}
+\end{titlepage}
+}
+\makeatother
+
+% ═══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+\hypersetup{pageanchor=false}
+\maketitle
+\clearpage
+\hypersetup{pageanchor=true}
+
+\tableofcontents
+\clearpage
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faList\ Warner Required Lesson Plan --- Header}{Warner Required Lesson Plan --- Header}}
+
+\begin{tabularx}{\textwidth}{|P{2.2in}|P{1.6in}|L|}
+\hline
+\cellcolor{tableHeader}\color{white}\bfseries CANDIDATE & \cellcolor{tableHeader}\color{white}\bfseries DATE & \cellcolor{tableHeader}\color{white}\bfseries COOPERATING TEACHER \\
+\hline
+Piter Garcia\newline pgarcia8@u.rochester.edu & March 19, 2026 & Mr.\ Derek Romig\newline derek.romig@greececsd.org \\
+\hline
+\end{tabularx}
+
+\vspace{4pt}
+
+\begin{tabularx}{\textwidth}{|P{1.8in}|P{2.5in}|L|}
+\hline
+\cellcolor{tableHeader}\color{white}\bfseries GRADE LEVEL & \cellcolor{tableHeader}\color{white}\bfseries SUBJECT / PROGRAM & \cellcolor{tableHeader}\color{white}\bfseries DURATION \\
+\hline
+Grade 4 & IGNITE --- Computer Science \& Digital Literacy, Pine Brook Elementary, Greece CSD & 4 sessions $\times$ 45 min\newline Sessions 31--34 of 35 \\
+\hline
+\end{tabularx}
+
+\vspace{4pt}
+
+\begin{tabularx}{\textwidth}{|>{}P{1.8in}|L|}
+\hline
+\cellcolor{tableHeader}\color{white}\bfseries LESSON TITLE & \cellcolor{white}\color{black}\normalfont Minecraft Education Coding FUNdamentals: Algorithms, Agents, and Inclusive Design \\
+\hline
+\end{tabularx}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faBook\ Introduction}{Introduction}}
+
+This innovative unit plan is built around \emph{Minecraft Education: Coding FUNdamentals}, specifically the Upper Primary Coding Fundamentals sequence (Lessons 1--4). The unit is designed for an inclusive Grade 4 IGNITE computer science rotation at Pine Brook Elementary and spans four 45-minute lessons. The purpose of the unit is to teach foundational computational thinking through a high-interest digital environment while making the learning sequence accessible to neurodivergent and culturally and linguistically diverse learners.
+
+The unit is innovative in two ways. First, it uses a game-based coding environment in which students program an Agent avatar using block code (MakeCode), producing immediate visual feedback on whether their algorithm is correct. Second, it redesigns that environment through inclusive instructional structures so that access to the lesson is not limited by reading load, startup difficulty, executive-function demands, or prior familiarity with the platform --- challenges that were directly observed during the March 2026 Minecraft pilot lesson at Pine Brook.
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faSchool\ Unit Context \& Rationale}{Unit Context and Rationale}}
+
+\subsection{Unit Context}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{2.1in}|L|}
+\hline
+Candidate & Piter Garcia \\
+\hline
+School / Setting & Pine Brook Elementary, IGNITE Computer Science \& Digital Literacy rotation \\
+\hline
+Grade Band & Grade 4 \\
+\hline
+Content Area & Computer Science / Digital Literacy \\
+\hline
+Unit Title & Minecraft Education Coding FUNdamentals \\
+\hline
+Unit Length & 4 lessons, approximately 45 minutes each (Sessions 31--34 of 35-session IGNITE year, May--June 2026) \\
+\hline
+Instructional Setting & Rotating inclusive classes; mixed readiness, mixed digital fluency, varied support needs \\
+\hline
+\end{tabularx}
+
+\subsection{Community, School, and Classroom Characteristics}
+
+Pine Brook's IGNITE program serves elementary learners through short rotation-based computer science instruction. Students enter the classroom with uneven prior experiences in coding, digital navigation, keyboard use, reading stamina, and collaborative work habits. The March 2026 placement pilot revealed that students vary in how independently they can follow multi-step digital directions, persist through troubleshooting, and ask for help appropriately. The classroom context also includes neurodivergent learners and culturally and linguistically diverse (CLD) learners whose competence may not be visible when a lesson depends heavily on fast reading, long verbal directions, or self-managed transitions.
+
+\subsection{Broader Curricular Context}
+
+This unit sits at the capstone of the IGNITE 35-session rotation (Sessions 31--35), positioned after students have worked through Book Creator, GIF animation, Chromebook camera, and Tinkercad. Students bring comfort with Google Classroom workflows and basic keyboard use. The Minecraft coding unit introduces block-based programming (MakeCode) and agent-based algorithm execution for the first time --- concepts that transfer to robotics, Code.org, and other block environments used in IGNITE. The primary standard is NYS 4-6.CT.1 (create, test, and revise algorithms using block coding), supported by CSTA 1A-AP-08, -10, -11, -14 and ISTE Student Standard 5c.
+
+\subsection{Rationale for Unit Design}
+
+The March 2026 pilot lesson conducted by Mr.\ Romig (observed during placement) provided direct design intelligence. Students who skipped NPC instruction text became immediately stuck and frustrated. Coordinate-based commands produced confusion because students lacked spatial vocabulary context. High-ability students who finished quickly disengaged when no extension path existed. Students with regulation needs escalated during ambiguous wait periods (world-loading times of 2--10 minutes). These observations directly shaped the inclusive design choices below.
+
+\begin{keybox}[Placement-Informed Design Decisions]
+\begin{itemize}
+\item Whole-class launch routine for the exact click-path into the lesson (Play $>$ Library $>$ Computer Science $>$ Block Coding $>$ Upper Primary Coding Fundamentals $>$ Lesson 1)
+\item Explicit NPC read-aloud routine before any coding begins --- teacher models this every session
+\item Structured peer support through Driver / Navigator roles (removes ambiguity that escalates Students B and C)
+\item ``Stop, Read, Predict'' protocol before every Run --- builds prediction habit, catches EF impulsivity (Student A)
+\item Spatial vocabulary pre-teaching before coordinate commands appear in Lesson 2
+\item Extension pathways (Expert Role, loop challenge, Build Bridges world) to retain high-performers (Kade, Hadi, Hani, Lorenzo)
+\item Stuck protocol posted on wall and on desk cards --- normalizes iteration, reduces regulation breaks
+\item Assessment that distinguishes interface/startup difficulty from conceptual coding difficulty
+\end{itemize}
+\end{keybox}
+
+\subsection{Three Target Students}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{1.7in}|P{2.4in}|L|}
+\hline
+\rowcolor{tableHeader}\color{white}\bfseries Target Student & \color{white}\bfseries Profile \& Likely Barrier & \color{white}\bfseries Planned Supports \\
+\hline
+Student A\newline (Executive Function) &
+  Neurodivergent learner; strong verbal participation and creative ideas but acts quickly without reading sequential directions. In the pilot session, this student skipped NPC text, clicked randomly, and became frustrated when the Agent did not behave as expected --- consistent with an executive-function profile (impulsivity, difficulty with multi-step tasks in novel digital environments). &
+  \begin{itemize}[nosep]
+  \item Chunked task cards (3 steps only per card)
+  \item ``Stop, Read, Predict'' enforced at every Run
+  \item Visible desk checklist
+  \item Teacher checkpoint before first code execution
+  \item Reduced decision-load at each phase
+  \end{itemize} \\
+\hline
+\arow Student B\newline (CLD / Language) &
+  CLD learner; understands concepts more readily than dense NPC text reflects. Fast whole-group verbal directions and English-only supports mask competence. In the pilot, this student engaged well with visual demonstrations and peer explanation, suggesting oral and visual channels are stronger access routes than text. &
+  \begin{itemize}[nosep]
+  \item Bilingual vocabulary anchor chart
+  \item Visual NPC transcript card (text pre-printed)
+  \item Partner read-aloud of instructions
+  \item Oral explanation of code as valid assessment evidence
+  \item Sentence frames on exit tickets
+  \item Immersive Reader enabled in Minecraft settings
+  \end{itemize} \\
+\hline
+Student C\newline (Social-Communication / Regulation) &
+  Neurodivergent learner with social-communication and sensory regulation needs. Engages deeply with structured tasks but becomes overwhelmed in open-ended or loud digital environments. Ambiguous collaboration expectations increase anxiety. Thrives when routine is predictable and transitions are explicitly signaled. &
+  \begin{itemize}[nosep]
+  \item Explicit pre-assigned Driver/Navigator roles
+  \item Posted session agenda with time markers
+  \item Quiet signal system (``stuck card'' on desk)
+  \item First-choice seat near teacher
+  \item Structured exit ticket with sentence starters
+  \item Identical exit ticket format across all 4 lessons
+  \end{itemize} \\
+\hline
+\end{tabularx}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faBrain\ Theoretical Framework}{Theoretical Framework}}
+
+This unit is grounded in three complementary theoretical lenses that together define an inclusive instructional design stance: Karten's Inclusion Model and MTSS, Universal Design for Learning (UDL), and Culturally Sustaining Pedagogy as it applies to technology access and CS identity formation.
+
+\subsection{1.\ Karten's Inclusion Model \& MTSS}
+
+Karten (2021) frames inclusive instruction not as a set of accommodations added to a standard lesson, but as a systemic design orientation: supports are built into the infrastructure of learning so that all students can access grade-level content. Multi-Tiered Systems of Support (MTSS) operationalizes this through Tier 1 universal design (available to all), Tier 2 targeted scaffolds (for students showing specific access barriers), and Tier 3 intensive supports (beyond this unit's scope). This unit applies the MTSS lens by front-loading Tier 1 supports --- visual vocabulary, consistent debug protocols, multimodal directions, predictable lesson structure --- rather than waiting for students to fail and then adding supports reactively. The pilot evidence supports this choice directly: students with executive-function and language processing needs are often the first to become stuck in novel digital environments, and their difficulty is frequently misread as disengagement or low ability.
+
+\subsection{2.\ Universal Design for Learning (UDL)}
+
+The UDL framework (CAST, 2018) provides three principles guiding this unit. \textbf{Multiple Means of Representation:} students access algorithm concepts through physical/unplugged modeling, NPC text, verbal teacher modeling, and visual vocabulary charts. \textbf{Multiple Means of Action and Expression:} students demonstrate computational thinking through MakeCode sequences, planning sheets, oral partner explanations, exit tickets, and visual documentation --- not text alone. \textbf{Multiple Means of Engagement:} choice within tasks, creative extension builds (loop challenge, Build Bridges world), and a low-stakes debugging culture that normalizes iteration rather than penalizing errors. These principles directly address findings from the pilot: students who struggled with coordinate commands needed spatial vocabulary pre-teaching (representation); students whose competence was masked by English-only interfaces needed oral explanation options (expression); students who disengaged when stuck needed structured extension pathways and stuck protocols (engagement).
+
+\subsection{3.\ Culturally Sustaining Pedagogy \& CS Identity}
+
+Paris and Alim's (2017) culturally sustaining pedagogy calls for instruction that affirms and extends students' existing cultural and linguistic assets. In the context of Minecraft, this means treating students' prior game knowledge as expertise rather than distraction. In the March 2026 pilot, Mr.\ Romig's pedagogical stance modeled this directly: students who already knew advanced Minecraft mechanics (Kade, Hadi, Hani who had crossed the hard navigation section; Lorenzo who did screen capture) were positioned as peer resources rather than outliers to manage. The unit formalizes this through the Expert Role structure in Lessons 3--4. For CLD students particularly, Minecraft is a globally prevalent game that crosses language barriers, and leveraging existing game proficiency builds the positive CS identity that literature identifies as a prerequisite for sustained engagement (Margolis et al., 2017).
+
+\begin{designbox}[Theory $\rightarrow$ Design Summary]
+\begin{itemize}
+\item \textbf{Karten / MTSS:} Tier 1 supports embedded from Lesson 1; debug protocol consistent across all 4 lessons; visual routine anchors each session. \textit{Observed basis:} EF/regulation students stuck immediately when NPC text was skipped --- support now built-in, not reactive.
+\item \textbf{UDL:} Multiple representation modes (unplugged, visual, oral, digital); multiple expression forms (code, sketch, oral, written); engagement through choice and iteration culture. \textit{Observed basis:} language processing students could not access dense NPC text; oral explanation now formally valid.
+\item \textbf{Culturally Sustaining Pedagogy:} Prior game knowledge valued as expertise; Expert Role structure in Lessons 3--4; student creative choices respected within coding task. \textit{Observed basis:} Kade, Hadi, Hani, Lorenzo as natural peer resources in pilot --- now formalized for equity.
+\end{itemize}
+\end{designbox}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faBullseye\ Long-Term Goals \& Standards}{Long-Term Goals and Standards}}
+
+\subsection{Unit Goal}
+
+Students will develop foundational computational thinking by using block coding in Minecraft Education to create, test, debug, and explain algorithms in an inclusive, access-forward learning environment.
+
+\subsection{Essential Question}
+
+How can students use algorithms, debugging, and structured collaboration to solve coding problems in a digital environment --- regardless of prior game experience, language background, or access needs?
+
+\subsection{Big Ideas}
+
+\begin{itemize}
+\item Algorithms are precise, ordered instructions --- sequence matters.
+\item Debugging is an expected and integral part of coding, not evidence of failure.
+\item Planning, testing, and revising improve program quality.
+\item Inclusive supports help more learners participate meaningfully in computer science.
+\item Prior knowledge and game expertise are legitimate starting points for coding learning.
+\end{itemize}
+
+\subsection{Unit Objectives}
+
+\begin{enumerate}
+\item Students will create and test algorithms using Minecraft Education's block-coding tools (MakeCode Agent).
+\item Students will use sequencing, debugging, and planning to improve code over multiple attempts.
+\item Students will explain how their code works using CS vocabulary: algorithm, sequence, debug, agent, loop, coordinate.
+\item Students will collaborate productively through structured Driver/Navigator peer roles.
+\end{enumerate}
+
+\subsection{NYS \& CSTA Standards}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{1.5in}|L|}
+\hline
+\rowcolor{tableHeader}\color{white}\bfseries Standard & \color{white}\bfseries Full Statement \\
+\hline
+NYS 4-6.CT.1 & Develop a program that uses a sequence of commands to accomplish a task, modify the program to solve a related problem, and test the program to determine if it works as intended. \\
+\hline
+\arow CSTA 1A-AP-08 & Model daily processes by creating and following algorithms (sets of step-by-step instructions) to complete tasks. \\
+\hline
+CSTA 1A-AP-10 & Develop programs with sequences and simple loops, to express ideas or address a problem. \\
+\hline
+\arow CSTA 1A-AP-11 & Decompose (break down) the steps needed to solve a problem into a precise sequence of instructions. \\
+\hline
+CSTA 1A-AP-14 & Debug (identify and fix) errors in an algorithm or program that includes sequences and simple loops. \\
+\hline
+\arow ISTE Student 5c & Break problems into component parts, extract key information, and develop descriptive models to understand complex systems or facilitate problem-solving. \\
+\hline
+\end{tabularx}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faChartBar\ Assessment}{Assessment}}
+
+\begin{assessbox}[How Learning Will Be Evaluated]
+\begin{itemize}
+\item Students are not assessed only by whether they finish the Minecraft task.
+\item Assessment includes planning quality, partner explanation, debugging strategy, and task completion --- multiple evidence types.
+\item Teacher notes distinguish: procedural/interface difficulty vs.\ reading difficulty vs.\ conceptual difficulty.
+\item Exit tickets and conferences provide evidence for learners who cannot demonstrate understanding fully through the in-game task alone.
+\item Assessment avoids conflating access barriers (device issues, NPC language load, navigation) with coding competence.
+\end{itemize}
+\end{assessbox}
+
+\subsection{Assessment Plan by Lesson}
+
+\begin{tabularx}{\textwidth}{|P{0.55in}|P{1.1in}|P{1.4in}|P{1.9in}|L|}
+\hline
+\rowcolor{tableHeader}\color{white}\bfseries Lesson & \color{white}\bfseries Focus & \color{white}\bfseries Lesson Goal & \color{white}\bfseries Formative Assessment & \color{white}\bfseries Evidence Collected \\
+\hline
+1 & Basic Moves & Navigate Minecraft Education, open MakeCode, use basic movement blocks to move the Agent. & Teacher observation of Minecraft startup; prediction before Run; quick conference during first code attempt; exit ticket 1 & Startup independence, short sequence accuracy, basic error noticing \\
+\hline
+\arow 2 & Sequencing & Plan and code a longer algorithm using Plan Before You Code worksheet. & Planning sheet review; observation of partner talk; teacher check-in before code execution & Plan quality, sequence accuracy, use of vocabulary \\
+\hline
+3 & Debugging & Identify errors using the debug protocol and revise code; explain the fix. & Debug conference (``What did you expect? What happened?''); code revision check; peer explanation & Evidence of revision using protocol; explanation of bug and fix \\
+\hline
+\arow 4 & Efficient Solutions \& Reflection & Compare solution strategies using loops, complete loop challenge or creative build; unit reflection. & Completion conference; Unit Reflection Exit Ticket 4 & Loop use, explanation of efficiency, final reflection \\
+\hline
+\end{tabularx}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faLayerGroup\ Pedagogy \& Implementation}{Pedagogy and Implementation}}
+
+\subsection{Instructional Approach}
+
+The unit uses explicit instruction, gradual release, structured collaboration, and reflective closure. Each lesson follows a stable five-part sequence: (1)~warm-up / engaging opening, (2)~teacher model, (3)~guided practice, (4)~independent or partner work, (5)~closure / formative assessment. This consistent routine serves both instructional and inclusive purposes --- students with regulation and EF needs thrive when structure is predictable, and the teacher can spend less time re-explaining procedure and more time supporting thinking.
+
+\subsection{Core Teaching Strategies}
+
+\begin{itemize}
+\item Think-aloud modeling during startup, NPC navigation, and MakeCode coding
+\item Explicit teaching of vocabulary and controls before independent use
+\item Driver / Navigator partner roles --- defined, bounded, role-switched at midpoint
+\item ``Plan Before You Code'' worksheet for Lessons 2 and 4 --- separates planning from execution
+\item Immediate feedback through prediction, run, debug cycle --- algorithm testing loop
+\item Short reflective exit ticket at lesson end --- consistent format across all 4 lessons
+\end{itemize}
+
+\subsection{Tier 1 Universal Supports (whole class)}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{2.1in}|L|}
+\hline
+\rowcolor{tableHeader}\color{white}\bfseries Area of Need & \color{white}\bfseries Tier 1 Instructional Response \\
+\hline
+Startup and navigation difficulty & Click-path chart posted and narrated at launch; whole-class launch routine; teacher models lesson entry step by step every session \\
+\hline
+\arow Reading load / NPC directions & Teacher reads NPC aloud as a class routine; NPC text printed on physical card; immersive reader pre-enabled in Minecraft settings \\
+\hline
+Executive-functioning needs & ``Stop, Read, Predict'' protocol before every Run; chunked task cards; visible desk checklist; teacher checkpoint before code execution \\
+\hline
+\arow Social / regulation needs & Pre-assigned Driver/Navigator roles; posted session agenda with time markers; stuck card on desk for self-advocacy; predictable lesson structure across all 4 sessions \\
+\hline
+Language-processing needs & Simplified directions; bilingual vocabulary anchor chart; visual vocabulary support; oral explanation options; sentence frames on all exit tickets \\
+\hline
+\end{tabularx}
+
+\subsection{Tier 2 Targeted Scaffolds (identified students)}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{2.1in}|L|}
+\hline
+\rowcolor{tableHeader}\color{white}\bfseries Student Profile & \color{white}\bfseries Additional Scaffolds Beyond Tier 1 \\
+\hline
+Student A (EF) & Required planning sheet before coding; 3-step task card (not 5); mandatory teacher check-in before first Run; proximity support during independent work \\
+\hline
+\arow Student B (CLD / Language) & Pre-printed NPC transcript card; bilingual peer partner for reading aloud; oral or demonstrated code explanation accepted; translated vocabulary list \\
+\hline
+Student C (Regulation) & Assigned seat near teacher; option (a) assigned by teacher in Lesson 4 to reduce choice-overload; explicit multiplayer rules posted before joining shared world; quiet signal \\
+\hline
+\end{tabularx}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faCalendar\ Lesson Sequence Overview}{Lesson Sequence Overview}}
+
+\begin{tabularx}{\textwidth}{|P{0.5in}|P{1.15in}|P{1.45in}|P{2.0in}|L|}
+\hline
+\rowcolor{tableHeader}\color{white}\bfseries \# & \color{white}\bfseries Title & \color{white}\bfseries Main Content & \color{white}\bfseries Key Activities & \color{white}\bfseries Products \\
+\hline
+1 & Basic Moves & Movement controls, Agent, MakeCode entry & Unplugged warm-up, teacher model, click-path launch, first short movement code, exit ticket & Short movement sequence + exit ticket 1 \\
+\hline
+\arow 2 & Sequencing to Reach a Goal & Longer ordered algorithms, planning & Compare-two-sequences warm-up, Plan Before You Code worksheet, Driver/Navigator partner coding & Planning sheet + working code + exit ticket 2 \\
+\hline
+3 & Debugging \& Revision & Identifying and fixing errors using protocol & Buggy code warm-up, debug protocol mini-lesson, tiered debug challenge, Expert Role for finishers & Revised code + bug explanation + exit ticket 3 \\
+\hline
+\arow 4 & Efficient Solutions \& Creative Build & Loops, comparing solutions, creative capstone & 12 blocks vs.\ loop comparison, loop introduction, Build Bridges creative build, unit reflection & Loop-based build or code + Unit Reflection Exit Ticket 4 \\
+\hline
+\end{tabularx}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\section{\texorpdfstring{\faPen\ Detailed Lesson Plans --- Warner Procedure Tables}{Detailed Lesson Plans --- Warner Procedure Tables}}
+
+\textit{Objective (applies across all 4 lessons):} Students will create, test, and revise block-coded algorithms in Minecraft Education, demonstrating algorithmic sequencing and debugging through code, oral explanation, and written planning --- using Tier 1 universal supports throughout and Tier 2 targeted scaffolds for identified students.
+
+\clearpage
+\subsection{Lesson 1: Basic Moves}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{1.55in}|L|}
+\hline
+Lesson Goal & Students will navigate Minecraft Education, open MakeCode, and use basic movement blocks to move the Agent toward a goal. \\
+\hline
+\arow Objectives & Use WASD + mouse + spacebar to move; open MakeCode with \texttt{C}; place a short movement sequence; notice when the Agent does not do what was expected. \\
+\hline
+\arow Materials & Minecraft Education, Chromebook, click-path chart, controls anchor chart, directional warm-up cards, Exit Ticket 1. \\
+\hline
+\end{tabularx}
+
+\begin{designbox}[Lesson 1 Instructional Sequence]
+\lessonphase{0--5 min}{Engaging Opening}
+{Introduce the lesson as coding rather than building. Run an unplugged challenge with directional cards and a three-step movement sequence.}
+{Physically follow directional commands, then generate one short sequence for the class to perform.}
+{A: printed sequence card for reference. B: icon-only directional card. C: bounded opening role (``You are the Robot'').}
+
+\lessonphase{5--12 min}{Direct Instruction / Model}
+{Project the exact Minecraft click-path, model reading the NPC aloud, demonstrate movement controls, and show how to open MakeCode with \texttt{C}.}
+{Watch the projection, repeat the controls aloud, and navigate to the lesson on their own device.}
+{A: desk controls chart and navigation-only first step. B: immersive reader pre-enabled. C: visible timer and explicit transition cues.}
+
+\lessonphase{12--20 min}{Guided Practice}
+{Read the first NPC as a class, prompt ``Stop, Read, Predict,'' and model a first two-block movement sequence.}
+{Read with a partner, predict the result before running, and try the first short sequence.}
+{A: teacher-initiated prediction routine. B: partner read-aloud and oral prediction accepted. C: pre-assigned Driver/Navigator roles.}
+
+\lessonphase{20--38 min}{Independent / Partner Work}
+{Release students to reach the gold pressure plate and circulate using mini debug conferences: ``What did you expect? What happened? What is one thing to try?''}
+{Build, predict, run, and iterate. Finishers extend by adding one more block and testing again.}
+{A: three-step task card with checkpoints. B: partner continues to read NPC text and oral explanation is accepted. C: role cards remain visible and teacher checks in at 25 minutes.}
+
+\lessonphase{38--45 min}{Closure / Formative Assessment}
+{Review major stumbling points and distribute Exit Ticket 1.}
+{Share one success or stuck point with a partner, then complete the exit ticket.}
+{A: sentence-frame and checkbox version. B: drawing or dictation accepted. C: same closing format used every lesson.}
+\end{designbox}
+
+\begin{assessbox}[Lesson 1 Assessment and Supports]
+\textbf{Assessment:} Teacher observation of navigation vs.\ conceptual fluency; prediction routine; Exit Ticket 1.\par
+\textbf{Tier 1 supports:} controls anchor chart; NPC read-aloud routine; prediction protocol; partner support; sentence-frame exit ticket.\par
+\textbf{Tier 2 scaffolds:} A --- desk task card and teacher checkpoint before Run; B --- immersive reader and partner read-aloud; C --- pre-assigned Driver/Navigator roles and timer.
+\end{assessbox}
+
+\clearpage
+\subsection{Lesson 2: Sequencing to Reach a Goal}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{1.55in}|L|}
+\hline
+Lesson Goal & Students will plan and write a longer sequence to move the Agent to a goal and explain their reasoning to a peer. \\
+\hline
+\arow Objectives & Create a correct ordered sequence; use a planning tool before coding when needed; explain the algorithm using key vocabulary. \\
+\hline
+\arow Materials & Minecraft Education, ``Plan Before You Code'' worksheet, visual sequence cards, vocabulary support card, Exit Ticket 2. \\
+\hline
+\end{tabularx}
+
+\begin{designbox}[Lesson 2 Instructional Sequence]
+\lessonphase{0--5 min}{Engaging Opening}
+{Display two short sequence cards and ask which one reaches the goal and why.}
+{Study the map, discuss in pairs, and share a prediction with reasoning.}
+{A: colored path overlay. B: arrow-based visual cards. C: explicit 60-second decision prompt.}
+
+\lessonphase{5--15 min}{Direct Instruction / Model}
+{Distribute the planning sheet and model sketching the Agent path, numbering steps, and translating the path into block code.}
+{Complete a planning sheet for the new challenge and translate the path into code.}
+{A: planning sheet required before coding. B: drawing and oral description accepted. C: numbered boxes reduce open-endedness.}
+
+\lessonphase{15--20 min}{Guided Practice}
+{Co-construct a path on the projected grid and ask at each step, ``What goes next? Why?''}
+{Offer block suggestions and write the agreed sequence onto the planning sheet.}
+{A: bounded turn called by name. B: may point instead of naming blocks. C: consensus-first structure reduces ambiguity.}
+
+\lessonphase{20--38 min}{Independent / Partner Work}
+{Release Driver/Navigator pairs and confer around planning sheets. Offer a Repeat-block extension for finishers.}
+{Code from the planning sheet, switch roles at the signal, and try the loop extension if ready.}
+{A: shortened path option and pre-Run check-in. B: bilingual vocabulary card and multimodal explanation accepted. C: explicit role boundary card remains posted.}
+
+\lessonphase{38--45 min}{Closure / Formative Assessment}
+{Project one planning sheet and matching code, then ask whether the plan and code align. Distribute Exit Ticket 2.}
+{Compare the plan to the code with a partner and complete the exit ticket.}
+{A: pre-printed sentence frames. B: drawing, demonstration, or oral response accepted. C: same exit-ticket format as Lesson 1.}
+\end{designbox}
+
+\begin{assessbox}[Lesson 2 Assessment and Supports]
+\textbf{Assessment:} Planning sheet quality; sequence quality; vocabulary use; teacher observation notes.\par
+\textbf{Tier 1 supports:} visible problem-solving routine; multiple task pathways; oral and written explanation prompts; predictable partner structure.\par
+\textbf{Tier 2 scaffolds:} A --- required planning sheet, shortened path, teacher check-in; B --- bilingual vocabulary card and oral/gesture explanation accepted; C --- boxed numbered planning sheet and role-boundary card.
+\end{assessbox}
+
+\clearpage
+\subsection{Lesson 3: Debugging \& Revision}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{1.55in}|L|}
+\hline
+Lesson Goal & Students will identify coding errors using the debug protocol, revise their algorithm, and explain what changed and why. \\
+\hline
+\arow Objectives & Compare expected and actual outcomes; identify the error; apply the debug protocol; revise and retest; explain the fix. \\
+\hline
+\arow Materials & Minecraft Education, debug protocol poster and desk card, tiered debug challenge sheets, Exit Ticket 3. \\
+\hline
+\end{tabularx}
+
+\begin{designbox}[Lesson 3 Instructional Sequence]
+\lessonphase{0--7 min}{Engaging Opening}
+{Project a broken code sequence and introduce the debug protocol: What did I expect? What actually happened? What is one thing to change? Try it. Repeat.}
+{Inspect the code in pairs, identify the likely bug, and discuss possible fixes.}
+{A: printed protocol card and one-change rule. B: icon-based protocol card. C: same card and routine used previously.}
+
+\lessonphase{7--20 min}{Direct Instruction / Model}
+{Intentionally break working code, think aloud through the protocol, and model staying with uncertainty rather than rushing to fix everything at once.}
+{Suggest one fix, vote on the most likely correction, and observe the teacher test it.}
+{A: teacher names the self-regulation move explicitly. B: projected protocol mirrors desk card. C: each protocol step is named before it happens.}
+
+\lessonphase{20--23 min}{Guided Practice}
+{Correct one shared code error together before independent work begins.}
+{Suggest and vote on a fix, then watch the class run the corrected version.}
+{A: bounded turn at step 3. B: may point to a block rather than naming it. C: consensus-first structure reduces social ambiguity.}
+
+\lessonphase{23--38 min}{Independent / Partner Work}
+{Distribute tiered debug challenges and assign levels using L1--L2 observations. Offer Expert Role to finishers with the rule that they may ask questions but not take over.}
+{Work through the challenge using the protocol worksheet and record the bug and fix.}
+{A: Level 1 and teacher-assigned. B: icon-based worksheet and partner read-aloud available. C: Expert Role offered as a structured option.}
+
+\lessonphase{38--45 min}{Closure / Formative Assessment}
+{Reframe debugging as the work of programming, invite two students to share a bug and fix, and distribute Exit Ticket 3.}
+{Complete the exit ticket and name the protocol step used most.}
+{A: sentence frame plus checkbox. B: drawing or demonstration accepted. C: same closing format as previous lessons.}
+\end{designbox}
+
+\begin{assessbox}[Lesson 3 Assessment and Supports]
+\textbf{Assessment:} Debug conference; code revision check; protocol worksheet; peer explanation.\par
+\textbf{Tier 1 supports:} posted debug protocol; ``one thing at a time'' norm; whole-class model before independent work.\par
+\textbf{Tier 2 scaffolds:} A --- Level 1 challenge, desk protocol card, teacher-assigned level; B --- icon-based protocol card and partner read-aloud; C --- Level 1--2 challenge, Expert Role option, and identical exit-ticket structure.
+\end{assessbox}
+
+\clearpage
+\subsection{Lesson 4: Efficient Solutions \& Creative Build}
+
+\begin{tabularx}{\textwidth}{|>{\bfseries\color{brickRed}}P{1.55in}|L|}
+\hline
+Lesson Goal & Students will compare solution strategies using loops, complete a creative coding challenge with a loop constraint, and reflect on unit learning. \\
+\hline
+\arow Objectives & Add a Repeat block to reduce code length; explain why a loop is more efficient; complete a creative build with at least one loop; reflect on unit learning. \\
+\hline
+\arow Materials & Minecraft Education, loop comparison examples, planning sheet, Build Bridges world, Unit Reflection Exit Ticket 4. \\
+\hline
+\end{tabularx}
+
+\begin{designbox}[Lesson 4 Instructional Sequence]
+\lessonphase{0--7 min}{Engaging Opening}
+{Compare a 12-block movement sequence to a Repeat-4 loop and ask which is easier to write and debug.}
+{Discuss the comparison with partners and explain why the loop is more efficient.}
+{A: physical blocks for counting iterations. B: visual comparison stays posted. C: explicit countdown to Chromebook transition.}
+
+\lessonphase{7--20 min}{Direct Instruction / Model}
+{Model a Repeat block in MakeCode and introduce Build Bridges as a creative extension connected to later IGNITE projects.}
+{Follow along with the first Repeat block and preview the extension world.}
+{A: three-step task card. B: narrated Minecraft library navigation. C: timer and clear release condition for extension work.}
+
+\lessonphase{20--23 min}{Guided Practice}
+{Co-construct the first loop on the projector by asking how many repetitions are needed and which steps belong inside the loop.}
+{Copy the loop onto the planning sheet and build it in MakeCode.}
+{A: teacher confirms the student plan directly. B: gesture response accepted. C: co-construction reduces loop-setup ambiguity.}
+
+\lessonphase{23--38 min}{Independent / Partner Work}
+{Release students to either the loop challenge or Build Bridges with the requirement that at least one loop must be used. Document work through observation notes.}
+{Code with the loop constraint, optionally use Driver/Navigator roles, and document the final result through a screenshot or paper plan.}
+{A: challenge option with completed plan sheet required. B: creative build option preferred if language load of the formal challenge is a barrier. C: teacher assigns the option and posts multiplayer rules.}
+
+\lessonphase{38--45 min}{Closure / Formative Assessment}
+{Close by naming the growth from Lesson 1 to Lesson 4, post the reflection prompts, and distribute Exit Ticket 4.}
+{Share one reflection aloud or in writing and complete the unit reflection exit ticket.}
+{A: teacher check-in before whole-class share. B: oral completion accepted. C: same structured closing routine used throughout the unit.}
+\end{designbox}
+
+\begin{assessbox}[Lesson 4 Assessment and Supports]
+\textbf{Assessment:} Completion conference; loop use; Unit Reflection Exit Ticket 4.\par
+\textbf{Tier 1 supports:} loop comparison activity; clear creative-work constraint; multiplayer option for engagement.\par
+\textbf{Tier 2 scaffolds:} A --- challenge option plus required plan sheet and teacher-assigned path; B --- creative-build option and oral exit ticket; C --- teacher-assigned option and identical exit-ticket format.
+\end{assessbox}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\clearpage
+\section{\texorpdfstring{\faCommentDots\ Reflection Prompts (Post-Implementation)}{Reflection Prompts (Post-Implementation)}}
+
+The following questions are grounded in the Warner lesson plan format and the ED452B inclusive design lens. Answer after implementation using observation notes, exit tickets, and student work samples.
+
+\begin{tabularx}{\textwidth}{|P{2.0in}|P{2.2in}|L|}
+\hline
+\rowcolor{tableHeader}\color{white}\bfseries Reflection Question & \color{white}\bfseries What to Look For & \color{white}\bfseries Design Implication for Next Lesson \\
+\hline
+Were instructions clear to all learners, including those who process text slowly or rely on visual/auditory input? & Were NPC instructions read aloud routinely? Did any student get stuck because they could not access the text? & If students skipped NPC text and got stuck $\rightarrow$ pre-print NPC instructions on physical card. If immersive reader unavailable $\rightarrow$ pre-set before session. \\
+\hline
+\arow Were students engaged? Which students showed disengagement and what was the likely root cause? & Distinguish: boredom (extension path insufficient) vs.\ barrier (stuck, overwhelmed) vs.\ mismatch (task too open-ended). & High-performers disengaged $\rightarrow$ formalize Expert Role and loop extension earlier. Stuck students shut down $\rightarrow$ add stuck card protocol explicitly at lesson start. \\
+\hline
+Could all students participate meaningfully --- including Students A, B, and C? & Did Student A use the task card? Did Student B explain code orally? Did Student C benefit from Driver/Navigator role? & Any identified student who could not participate due to access barrier $\rightarrow$ elevate to Tier 2 check-in next session. Report pattern to cooperating teacher. \\
+\hline
+\arow Was the lesson objective met? What is the evidence? & Exit tickets: can students name what their Agent did and identify a change? Planning sheets match code? Debug protocol used rather than random clicking? & Most students could not explain code $\rightarrow$ more oral modeling in next session. Debug protocol not used $\rightarrow$ revisit explicitly before L3 independent challenge. \\
+\hline
+How do student responses inform the design of the next lesson? & What stumbling blocks appeared (pilot data: loading times, coordinates, NPC skipping, device issues)? What extensions were needed? & Adjust Tier 1 and Tier 2 supports based on exit ticket patterns. Identify students for Expert Role in L3--4. Flag students needing pre-teaching. \\
+\hline
+\end{tabularx}
+
+% ───────────────────────────────────────────────────────────────────────────────
+\clearpage
+\section{\texorpdfstring{\faLightbulb\ Unit Analysis}{Unit Analysis}}
+
+\subsection{Analysis of Student Learning}
+
+Student learning in this unit will be analyzed through patterns across the four lessons rather than through completion alone. The key questions: Do students increasingly demonstrate independence with algorithms? Can they explain how their code works? Does debugging become more strategic over time? The teacher will also examine whether supports such as planning sheets, partner roles, and click-path charts improve access without lowering expectations --- and whether any support created dependency rather than scaffolded growth.
+
+\begin{designbox}[Pilot Evidence $\rightarrow$ Design Loop]
+\begin{itemize}
+\item Loading times (2--10 min) and device issues are administrative variables, not cognitive ones --- address at setup, not mid-lesson.
+\item Students who beat Lesson 1 quickly (Kade, Lorenzo, Hadi, Hani) showed they can self-extend; Expert Role and loop extension formalize this.
+\item NPC skipping was the single largest access barrier in the pilot --- every Tier 1 support in this unit addresses it directly.
+\item Coordinate confusion in the fill-with-air command confirms that spatial vocabulary must be pre-taught before students encounter it independently.
+\item Peer-to-peer help (``Did you ask [name] since they already beat this part?'') occurred naturally in the pilot --- Driver/Navigator formalizes and extends this existing student norm.
+\end{itemize}
+\end{designbox}
+
+\subsection{Unit Strengths}
+
+The strength of this unit is that it preserves the authentic Minecraft coding sequence while organizing it into explicit instructional design. Students engage in real coding tasks, but the unit does not assume that motivation alone will produce access. Instead, it pairs a high-interest platform with clear routines, support structures, and layered assessment. For an inclusive classroom, that combination is more instructionally responsible than assigning the digital task without redesign.
+
+\subsection{Next Revision}
+
+The next revision of the unit (Part 2, due April 30, 2026) should be informed by student work, teacher observation notes, and exit ticket patterns from actual implementation in May--June 2026. That second version will tighten the rubric alignment with concrete evidence of what actually helped learners succeed, which supports were effective, and which students needed additional escalation to Tier 2 or Tier 3 supports.
+
+% ───────────────────────────────────────────────────────────────────────────────
+\clearpage
+\section{\texorpdfstring{\faBook\ References (APA 7th Edition)}{References (APA 7th Edition)}}
+
+\begin{flushleft}
+\setlength{\parindent}{-0.4in}
+\setlength{\leftskip}{0.4in}
+\setlength{\parskip}{6pt}
+
+\textit{CAST. (2018).} Universal Design for Learning guidelines version 2.2. \url{http://udlguidelines.cast.org}
+
+\textit{Karten, T. J. (2021).} Inclusion strategies that work: Research-based methods for the classroom (4th ed.). Corwin.
+
+\textit{Margolis, J., Estrella, R., Goode, J., Holme, J. J., \& Nao, K. (2017).} Stuck in the shallow end: Education, race, and computing (Updated ed.). MIT Press.
+
+\textit{Microsoft Education. (2023).} Minecraft Education: Computer science curriculum. \url{https://education.minecraft.net/en-us/resources/computer-science-subject-kit}
+
+\textit{Paris, D., \& Alim, H. S. (Eds.). (2017).} Culturally sustaining pedagogies: Teaching and learning for justice in a changing world. Teachers College Press.
+
+\textit{New York State Education Department. (2020).} New York State K-12 computer science and digital fluency learning standards. \url{http://www.nysed.gov/curriculum-instruction/computer-science-and-digital-fluency-learning-standards}
+
+\textit{Computer Science Teachers Association. (2017).} CSTA K-12 CS standards. \url{https://www.csteachers.org/page/standards}
+
+\textit{International Society for Technology in Education. (2016).} ISTE standards for students. \url{https://www.iste.org/standards/iste-standards-for-students}
+
+\textit{Schirmer, E. (2026).} ED452B Instructional strategies for inclusive classrooms B --- syllabus and rubric. University of Rochester, Warner School of Education.
+
+\end{flushleft}
+
+\end{document}
