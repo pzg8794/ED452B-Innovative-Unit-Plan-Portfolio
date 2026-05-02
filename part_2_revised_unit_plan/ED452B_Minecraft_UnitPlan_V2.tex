@@ -19,6 +19,7 @@
 \usepackage{tabularx}
 \usepackage{xltabular}
 \usepackage{colortbl}
+\usepackage{etoolbox}
 
 % ─── Color Definitions ─────────────────────────────────────────────────────────
 \definecolor{navyBlue}{HTML}{003087}
@@ -48,6 +49,9 @@
 \titleformat{\subsection}{\normalsize\bfseries\color{brickRed}}{\thesubsection}{1em}{}
 \titlespacing*{\section}{0pt}{14pt}{6pt}
 \titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\raggedbottom
+\pretocmd{\section}{\Needspace{11\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{7\baselineskip}}{}{}
 
 % ─── Callout Boxes ─────────────────────────────────────────────────────────────
 \tcbuselibrary{skins,breakable}
@@ -221,7 +225,9 @@ This unit sits at the capstone of the IGNITE 35-session rotation (Sessions 31--3
 
 \subsection{Rationale for Unit Design}
 
-The March 2026 pilot lesson conducted by Mr.\ Romig (observed during placement) provided direct design intelligence. Students who skipped NPC instruction text became immediately stuck and frustrated. Coordinate-based commands produced confusion because students lacked spatial vocabulary context. High-ability students who finished quickly disengaged when no extension path existed. Students with regulation needs escalated during ambiguous wait periods (world-loading times of 2--10 minutes). These observations directly shaped the inclusive design choices below.
+The March 2026 pilot lessons conducted by Mr.\ Romig and co-supported during placement provided direct design intelligence. Across the March 13, March 17, March 23, and March 26 placement transcripts, several patterns repeated: students needed an explicit click-path into the lesson, many became stuck when NPC directions were skipped or skimmed, the Agent's location and orientation had to be made visible before coding made sense, and the timed dual-plate challenge required students to understand the relationship between the student's body and the Agent's programmed movement. These were not small management details; they were access variables that affected whether computational thinking could be seen.
+
+The transcript evidence also showed that students' Minecraft expertise was uneven. Some students moved quickly, helped peers, or understood game mechanics before the formal coding objective was secure. Others needed repeated prompting to enter the correct room, use the touchpad rather than the touchscreen, rename the chat command, type the command correctly, count blocks, or remember that the Agent could move through air or water. Because of this, the unit design avoids interpreting speed, reading compliance, or interface independence as the same thing as coding competence. Instead, it treats access, algorithm design, debugging, explanation, and efficiency as related but separate evidence streams.
 
 \begin{keybox}[Placement-Informed Design Decisions]
 \begin{itemize}
@@ -235,6 +241,15 @@ The March 2026 pilot lesson conducted by Mr.\ Romig (observed during placement) 
 \item Assessment that distinguishes interface/startup difficulty from conceptual coding difficulty
 \end{itemize}
 \end{keybox}
+
+\begin{designbox}[Transcript Evidence Used to Revise the Unit]
+\begin{itemize}
+\item \textbf{March 13 Minecraft Coding Fundamentals:} students needed repeated modeling for the entry screen, yellow-wall room, Agent setup, and command execution; this supports the click-path launch routine and visual setup checklist.
+\item \textbf{March 17 Agent Puzzles:} the timed gold-plate challenge showed that students needed to write one complete code sequence, coordinate their own movement with the Agent's movement, and understand that the Agent can float or travel underwater; this supports explicit success criteria and strategy comparison.
+\item \textbf{March 23 Rubric / lesson design meeting:} feedback emphasized that rubric language needed to specify observable evidence, not vague terms such as ``understood''; this supports the revised assessment categories and evidence table.
+\item \textbf{March 26 coding workshop:} peer expertise and table-based help emerged naturally, especially when some students had already moved ahead; this supports Driver/Navigator roles and Expert Helper routines that channel peer help without letting one student take over.
+\end{itemize}
+\end{designbox}
 
 \subsection{Three Target Students}
 
@@ -361,6 +376,7 @@ CSTA 1A-AP-14 & Debug (identify and fix) errors in an algorithm or program that 
 \item Teacher notes distinguish: procedural/interface difficulty vs.\ reading difficulty vs.\ conceptual difficulty.
 \item Exit tickets and conferences provide evidence for learners who cannot demonstrate understanding fully through the in-game task alone.
 \item Assessment avoids conflating access barriers (device issues, NPC language load, navigation) with coding competence.
+\item Transcript-informed evidence categories make the rubric more observable: startup independence, goal interpretation, whole-sequence planning, debugging moves, peer support, and explanation after completion.
 \end{itemize}
 \end{assessbox}
 
